@@ -21,7 +21,7 @@
 ## 🛠 Installation
 
 ```sh
-pip install dict2obj
+pip install dict2objects
 ```
 
 ---
@@ -30,7 +30,7 @@ pip install dict2obj
 
 ### **Basic Example**
 ```python
-from dict2obj import Dict2Obj
+from dict2objects import Dict2Obj
 
 data = {"name": "Alice", "age": 30, "address": {"city": "New York", "zip": "10001"}}
 obj = Dict2Obj(data)
