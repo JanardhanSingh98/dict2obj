@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="dict2objects",
-    version="0.0.1",
+    version="0.0.2",
     description="Convert Python dictionaries into objects with attribute-style access.",
     author="Janardhan Singh",
     author_email="janardhansingh1998@example.com",
