@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dict2objects"
-version = "0.0.2"
+version = "0.0.3"
 description = "Convert dictionaries into objects with attribute-style access"
 authors = [{ name = "Janardhan Singh", email = "janardhansingh1998@gmail.com" },]
 readme = "README.md"

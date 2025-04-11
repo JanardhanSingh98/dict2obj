@@ -15,6 +15,7 @@
 ✅ Return `None` for missing attributes instead of raising errors  
 ✅ Convert back to dictionary with `to_dict()`  
 ✅ Flatten to dot notation with `to_dot_dict()`  
+✅ Supports non-string keys like integers and tuples  
 
 ---
 
@@ -59,7 +60,48 @@ print(obj.address.country)  # None (nested non-existent key)
 
 ---
 
-## 💂️ Project Structure
+## 🧠 Access Patterns
+
+Dict2Obj supports access to nested keys using attribute-style access and special handling of non-string keys.
+
+```python
+from dict2objects import Dict2Obj
+
+data = {
+    "user": {
+        "name": "Alice",
+        "age": 30,
+        (1, 2): "coordinates"
+    },
+    100: "century",
+    "details": {
+        "nested": {
+            "value": 42
+        }
+    }
+}
+
+obj = Dict2Obj(data)
+
+print(obj.user.name)          # Alice
+print(obj.details.nested.value)  # 42
+print(obj.to_dict()[(1, 2)])     # coordinates
+print(obj.to_dict()[100])        # century
+```
+
+### 🔍 Access Table
+
+| Description                          | Access Pattern                          | Output        |
+|--------------------------------------|-----------------------------------------|---------------|
+| ✅ Top-level key (string)             | `obj.user.name`                         | `"Alice"`     |
+| ❓ Nested key                         | `obj.details.nested.value`              | `42`          |
+| 🧩 Non-string tuple key (original)   | `obj.to_dict()[(1, 2)]`                 | `"coordinates"`|
+| 📦 Non-string integer key (original) | `obj.to_dict()[100]`                    | `"century"`   |
+| 📜 Missing key                       | `obj.unknown`                           | `None`        |
+
+---
+
+## 📁 Project Structure
 
 ```
 dict2obj/
@@ -95,7 +137,7 @@ dict2obj/
 
 ---
 
-## 🐜 License
+## 📄 License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
