@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dict2objects"
-version = "0.1.2"
+version = "0.1.3"
 description = "Convert dictionaries into objects with attribute-style access"
 authors = ["Janardhan Singh <janardhansingh1998@gmail.com>"]
 license = "MIT"
@@ -26,9 +26,13 @@ bumpver = "*"
 isort = "*"
 pip-tools = "*"
 pytest = "*"
+mypy = "*"
+coverage = "*"
+flake8 = "*"
+setuptools = "*"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=2.1.2"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.black]

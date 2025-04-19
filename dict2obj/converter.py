@@ -1,5 +1,6 @@
 import ast
 
+
 class Dict2Obj:
     """Convert a dictionary into an object with attribute-style access and provide flattening functionality."""
 
