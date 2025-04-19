@@ -2,6 +2,7 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.6%2B-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![PyPI version](https://img.shields.io/pypi/v/dict2objects.svg)](https://pypi.org/project/dict2objects/)
 
 🚀 Convert Python dictionaries into objects with attribute-style access.  
 🔄 Supports nested dictionaries.  
@@ -15,7 +16,6 @@
 ✅ Return `None` for missing attributes instead of raising errors  
 ✅ Convert back to dictionary with `to_dict()`  
 ✅ Flatten to dot notation with `to_dot_dict()`  
-✅ Supports non-string keys like integers and tuples  
 
 ---
 
@@ -23,6 +23,12 @@
 
 ```sh
 pip install dict2objects
+```
+
+Or using Poetry:
+
+```sh
+poetry add dict2objects
 ```
 
 ---
@@ -60,48 +66,26 @@ print(obj.address.country)  # None (nested non-existent key)
 
 ---
 
-## 🧠 Access Patterns
+## 📌 Access Patterns
 
-Dict2Obj supports access to nested keys using attribute-style access and special handling of non-string keys.
+| Access Type          | Example                            | Output        |
+|----------------------|------------------------------------|---------------|
+| Attribute-style      | `obj.name`                         | `'Alice'`     |
+| Nested attribute     | `obj.address.city`                 | `'New York'`  |
+| Missing attribute    | `obj.not_exist`                    | `None`        |
+| Flatten dot notation| `obj.to_dot_dict()`                | `{...}`       |
 
 ```python
-from dict2objects import Dict2Obj
-
-data = {
-    "user": {
-        "name": "Alice",
-        "age": 30,
-        (1, 2): "coordinates"
-    },
-    100: "century",
-    "details": {
-        "nested": {
-            "value": 42
-        }
-    }
-}
-
-obj = Dict2Obj(data)
-
-print(obj.user.name)          # Alice
-print(obj.details.nested.value)  # 42
-print(obj.to_dict()[(1, 2)])     # coordinates
-print(obj.to_dict()[100])        # century
+obj = Dict2Obj({"user": {"details": {"name": "Janardhan"}}})
+print(obj.user.details.name)  # "Janardhan"
+print(obj.user.age)  # None
+print(obj.to_dot_dict())
+# {'user.details.name': 'Janardhan'}
 ```
-
-### 🔍 Access Table
-
-| Description                          | Access Pattern                          | Output        |
-|--------------------------------------|-----------------------------------------|---------------|
-| ✅ Top-level key (string)             | `obj.user.name`                         | `"Alice"`     |
-| ❓ Nested key                         | `obj.details.nested.value`              | `42`          |
-| 🧩 Non-string tuple key (original)   | `obj.to_dict()[(1, 2)]`                 | `"coordinates"`|
-| 📦 Non-string integer key (original) | `obj.to_dict()[100]`                    | `"century"`   |
-| 📜 Missing key                       | `obj.unknown`                           | `None`        |
 
 ---
 
-## 📁 Project Structure
+## 💂️ Project Structure
 
 ```
 dict2obj/
@@ -128,19 +112,18 @@ dict2obj/
    ```
 2. Install dependencies:
    ```sh
-   pip install -e .
+   poetry install
    ```
 3. Run tests:
    ```sh
-   python -m unittest discover tests
+   poetry run pytest
    ```
 
 ---
 
-## 📄 License
+## 🐜 License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
 ### 🌟 **Like this project? Give it a star ⭐ on GitHub!**
-
