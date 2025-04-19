@@ -1,31 +1,39 @@
-[tool.poetry]
+[project]
 name = "dict2objects"
-version = "0.1.3"
+version = "0.1.4"
 description = "Convert dictionaries into objects with attribute-style access"
-authors = ["Janardhan Singh <janardhansingh1998@gmail.com>"]
-license = "MIT"
 readme = "README.md"
+requires-python = ">=3.8,<4.0"
+license = { text = "MIT" }
+authors = [
+  { name = "Janardhan Singh", email = "janardhansingh1998@gmail.com" }
+]
+keywords = ["dictionary", "object", "conversion", "dot", "access"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+#dependencies = [
+#  "python>=3.8,<4.0",
+#]
+
+[project.urls]
+Homepage = "https://github.com/JanardhanSingh98/dict2obj"
+Repository = "https://github.com/JanardhanSingh98/dict2obj"
+Issues = "https://github.com/JanardhanSingh98/dict2obj/issues"
+Documentation = "https://github.com/JanardhanSingh98/dict2obj"
+
+[tool.poetry]
 packages = [{ include = "dict2obj" }]
 include = ["dict2obj/py.typed"]
-keywords = ["dictionary", "object", "conversion", "dot", "access"]
-homepage = "https://github.com/JanardhanSingh98/dict2obj"
-repository = "https://github.com/JanardhanSingh98/dict2obj"
-documentation = "https://github.com/JanardhanSingh98/dict2obj"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-]
-
-[tool.poetry.dependencies]
-python = ">=3.8"
 
 [tool.poetry.group.dev.dependencies]
+pytest = "*"
 black = "*"
 bumpver = "*"
 isort = "*"
 pip-tools = "*"
-pytest = "*"
 mypy = "*"
 coverage = "*"
 flake8 = "*"
