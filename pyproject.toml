@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dict2objects"
-version = "0.1.1"
+version = "0.1.2"
 description = "Convert dictionaries into objects with attribute-style access"
 authors = ["Janardhan Singh <janardhansingh1998@gmail.com>"]
 license = "MIT"
