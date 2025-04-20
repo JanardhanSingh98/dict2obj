@@ -94,7 +94,7 @@ dict2obj/
 │   ├── converter.py
 ├── tests/
 │   ├── test_converter.py
-├── setup.py
+├── poetry.lock
 ├── pyproject.toml
 ├── README.md
 ├── LICENSE
